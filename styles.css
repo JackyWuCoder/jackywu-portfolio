@@ -152,3 +152,7 @@ section {
     box-sizing: border-box;
     min-height: fit-content;
 }
+
+.section-container {
+   display:flex;
+}

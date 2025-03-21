@@ -165,3 +165,10 @@ section {
     gap: 5rem;
     height: 80vh;
 }
+
+.section__pic-container {
+    display: flex;
+    width: 400px;
+    height: 400px;
+    margin: auto 0;
+}

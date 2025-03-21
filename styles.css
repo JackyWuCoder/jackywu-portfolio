@@ -181,3 +181,9 @@ section {
 .section__text p{
     font-weight: 600;
 }
+
+.section__text__p1 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}

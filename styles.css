@@ -206,3 +206,11 @@ section {
     cursor: pointer;
     height: 2rem;
 }
+
+/* BUTTONS */
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}

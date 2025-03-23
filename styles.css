@@ -225,5 +225,5 @@ section {
 
 .btn-color-1, 
 .btn-color-2 {
-    border: rgb(53, 53, 53) 0.1rem solid;
+    border: 0.1rem solid rgb(53, 53, 53);
 }

@@ -227,3 +227,8 @@ section {
 .btn-color-2 {
     border: 0.1rem solid rgb(53, 53, 53);
 }
+
+.btn-color-1:hover, 
+.btn-color-2:hover {
+    cursor: pointer;
+}

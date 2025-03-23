@@ -184,6 +184,9 @@ section {
 
 .section__text__p1 {
     text-align: center;
+}
+
+.section__text__p2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
 }
@@ -249,4 +252,8 @@ section {
 
 .btn-color-2:hover {
     border: 0.1rem solid rgb(255, 255, 255);
+}
+
+.btn-container {
+    gap: 1rem;
 }

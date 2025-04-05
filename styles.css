@@ -303,3 +303,9 @@ section {
     gap: 4rem;
     height: 80%;
 }
+
+.section__pic-container {
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}

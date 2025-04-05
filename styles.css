@@ -298,3 +298,8 @@ section {
     border-color: rgb(163, 163, 163);
     text-align: center;
 }
+
+.section-container {
+    gap: 4rem;
+    height: 80%;
+}

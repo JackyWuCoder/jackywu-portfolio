@@ -380,3 +380,12 @@ article .icon {
     color: black;
     border-color: rgb(163, 163, 163);
 }
+
+/* CONTACT */
+
+#contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+}

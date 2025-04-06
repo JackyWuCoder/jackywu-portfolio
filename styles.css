@@ -310,6 +310,12 @@ section {
     margin: auto 0;
 }
 
+.text-container p {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    color: #555;
+}
+
 /* EXPERIENCE SECTION */
 
 #experience {
@@ -347,3 +353,6 @@ article {
 article .icon {
     cursor: default;
 }
+
+/* PROJECTS SECTION */
+

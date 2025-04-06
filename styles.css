@@ -408,3 +408,7 @@ article .icon {
     gap: 0.5rem;
     margin: 1rem;
 }
+
+.contact-info-container p {
+    font-size: larger;
+}

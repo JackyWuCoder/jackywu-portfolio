@@ -1,4 +1,4 @@
-const blackCatFile = "./cat-mode/sprites/black-cat/cat_black_idle.png"; 
+const blackCatIdleSrc = "./cat-mode/sprites/black-cat/cat_black_idle.png"; 
 
 export function setupCat(canvasId = "cat-canvas") {
 
@@ -12,7 +12,7 @@ export function setupCat(canvasId = "cat-canvas") {
     // Animate idle sprite loop
     const ctx = canvas.getContext("2d");
     const idleImg = new Image();
-    idleImg.src = blackCatFile;
+    idleImg.src = blackCatIdleSrc;
 
     const IDLE_FRAMES = 8;
     let currentFrame = 0;

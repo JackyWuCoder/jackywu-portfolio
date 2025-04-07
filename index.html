@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav id="desktop-nav">
-        <div class="logo">Jacky Wu</div>
+        <div id="jacky" class="logo">Jacky Wu</div>
         <div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
@@ -549,5 +549,11 @@
         <p>Copyright &#169; 2025 Jacky Wu. All Rights Reserved.</p>
     </div>
     <script src="script.js"></script>
+    <script type="module">
+        import { setupCat } from "./cat-mode/cat.js";
+        document.getElementById("jacky").addEventListener("click", () => {
+            setupCat();
+        });
+    </script>
 </body>
 </html>

@@ -31,10 +31,6 @@ export function setupCat(canvasId = "cat-canvas") {
         requestAnimationFrame(draw);
     }
 
-    idleImg.onload = () => {
-        draw();
-    };
-
     // Keyboard input & movement
     let x = 100;
     let y = 100;
@@ -50,4 +46,13 @@ export function setupCat(canvasId = "cat-canvas") {
         if (keys["arrowright"] || keys["d"]) x += 2;
     }
 
+    function loop() {
+        update();
+        draw();
+        requestAnimationFrame(loop);
+    }
+
+    idleImg.onload = () => {
+        loop();
+    };
 }

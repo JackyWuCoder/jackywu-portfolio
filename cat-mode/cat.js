@@ -18,19 +18,6 @@ export function setupCat(canvasId = "cat-canvas") {
     let currentFrame = 0;
     let frameTimer = 0;
 
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        frameTimer++;
-        if (frameTimer > 10) {
-            currentFrame = (currentFrame + 1) % IDLE_FRAMES;
-            frameTimer = 0;
-        }
-
-        ctx.drawImage(idleImg, currentFrame * 32, 0, 32, 32, 100, 100, 32, 32);
-        requestAnimationFrame(draw);
-    }
-
     // Keyboard input & movement
     let x = 100;
     let y = 100;
@@ -44,6 +31,19 @@ export function setupCat(canvasId = "cat-canvas") {
         if (keys["arrowdown"] || keys["s"]) y += 2;
         if (keys["arrowleft"] || keys["a"]) x -= 2;
         if (keys["arrowright"] || keys["d"]) x += 2;
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        frameTimer++;
+        if (frameTimer > 10) {
+            currentFrame = (currentFrame + 1) % IDLE_FRAMES;
+            frameTimer = 0;
+        }
+
+        ctx.drawImage(idleImg, currentFrame * 32, 0, 32, 32, x, y, 32, 32);
+        requestAnimationFrame(draw);
     }
 
     function loop() {

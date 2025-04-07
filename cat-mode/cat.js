@@ -31,6 +31,10 @@ export function setupCat(canvasId = "cat-canvas") {
         if (keys["arrowdown"] || keys["s"]) y += 2;
         if (keys["arrowleft"] || keys["a"]) x -= 2;
         if (keys["arrowright"] || keys["d"]) x += 2;
+
+        // Contrain to viewport
+        x = Math.max(0, Math.min(x, canvas.width - 32));
+        y = Math.max(0, Math.min(y, canvas.height - 32));
     }
 
     function draw() {

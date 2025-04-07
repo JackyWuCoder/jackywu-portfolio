@@ -1,12 +1,15 @@
 const blackCatFile = "./cat-mode/sprites/black-cat/cat_black_idle.png"; 
 
 export function setupCat(canvasId = "cat-canvas") {
+
+    // Create a canvas element
     const canvas = document.createElement("canvas");
     canvas.id = canvasId;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     document.body.appendChild(canvas);
 
+    // Animate idle sprite loop
     const ctx = canvas.getContext("2d");
     const idleImg = new Image();
     idleImg.src = blackCatFile;
@@ -31,4 +34,12 @@ export function setupCat(canvasId = "cat-canvas") {
     idleImg.onload = () => {
         draw();
     };
+
+    // Keyboard input & movement
+    let x = 100;
+    let y = 100;
+    const keys = {};
+
+    window.addEventListener("keydown", (e) => keys[e.key.toLowerCase()] = true);
+    window.addEventListener("keyup", (e) => keys[e.key.toLowerCase()] = false);
 }

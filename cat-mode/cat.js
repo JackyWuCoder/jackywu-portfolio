@@ -42,4 +42,11 @@ export function setupCat(canvasId = "cat-canvas") {
 
     window.addEventListener("keydown", (e) => keys[e.key.toLowerCase()] = true);
     window.addEventListener("keyup", (e) => keys[e.key.toLowerCase()] = false);
+
+    function update() {
+        if (keys["arrowup"] || keys["w"]) y -= 2;
+        if (keys["arrowdown"] || keys["s"]) y -= 2;
+        if (keys["arrowleft"] || keys["a"]) y -= 2;
+        if (keys["arrowright"] || keys["d"]) y -= 2;
+    }
 }

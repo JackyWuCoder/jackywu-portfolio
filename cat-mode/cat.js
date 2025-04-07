@@ -45,8 +45,9 @@ export function setupCat(canvasId = "cat-canvas") {
 
     function update() {
         if (keys["arrowup"] || keys["w"]) y -= 2;
-        if (keys["arrowdown"] || keys["s"]) y -= 2;
-        if (keys["arrowleft"] || keys["a"]) y -= 2;
-        if (keys["arrowright"] || keys["d"]) y -= 2;
+        if (keys["arrowdown"] || keys["s"]) y += 2;
+        if (keys["arrowleft"] || keys["a"]) x -= 2;
+        if (keys["arrowright"] || keys["d"]) x += 2;
     }
+
 }

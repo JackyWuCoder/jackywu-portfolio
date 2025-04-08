@@ -271,7 +271,7 @@ section {
 }
 
 .btn-color-2:hover {
-    border: 0.1rem solid rgb(255, 255, 255);
+    border: 0.1rem solid var(--btn-color-2-hover);
 }
 
 .btn-container {
@@ -482,6 +482,7 @@ footer p {
     --anchor-hover-color: var(--grey);
     --anchor-hover-text-decoration-color: rgb(181, 181, 181);
     --h1-color: var(--black);
+    --btn-color-2-hover: rgb(255, 255, 255);
 }
 
 .dark-theme {
@@ -495,4 +496,5 @@ footer p {
     --anchor-hover-color: var(--green);
     --anchor-hover-text-decoration-color: var(--green);
     --h1-color: var(--green);
+    --btn-color-2-hover: var(--green);
 }

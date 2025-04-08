@@ -202,9 +202,14 @@ export function setupCat(canvasId = "cat-canvas") {
         requestAnimationFrame(loop);
     }
 
-    idleImg.onload = () => {
-        runImg.onload = () => {
-            loop();
+    spriteImages.idleImg.onload = () => {
+        spriteImages.runImg.onload = () => {
+            spriteImages.jumpImg.onload = () => {
+                spriteImages.fallImg.onload = () => {
+                    // Start the animation loop
+                    loop();
+                };
+            };
         };
     };
 }

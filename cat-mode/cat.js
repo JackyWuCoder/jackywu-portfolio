@@ -40,6 +40,11 @@ export function setupCat(canvasId = "cat-canvas") {
     canvas.height = window.innerHeight;
     document.body.appendChild(canvas);
 
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    })
+
     // Animate idle sprite loop
     const ctx = canvas.getContext("2d");
 

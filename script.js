@@ -7,10 +7,15 @@ function toggleMenu()
 }
 
 const toggleButton = document.getElementById("theme-toggle");
-const body = document.body;
 
 toggleButton.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-theme");
+    document.body.classList.toggle("dark-theme");
 
-    toggleButton.textContent = body.classList.contains("dark-mode") ? "🌞" : "🌚";
-})
+    const className = document.body.className;
+    if(className == "light-theme") {
+        toggleButton.textContent = "🌚";
+    } else {
+        toggleButton.textContent = "🌞";
+    }
+});

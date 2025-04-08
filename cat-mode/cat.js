@@ -157,19 +157,19 @@ export function setupCat(canvasId = "cat-canvas") {
 
         switch (animationState) {
             case "run":
-                sprite = runImg;
+                sprite = spriteImages.runImg;
                 frameCount = RUN_FRAMES
                 break;
             case "jump":
-                sprite = jumpImg;
+                sprite = spriteImages.jumpImg;
                 frameCount = JUMP_FRAMES;
                 break;
             case "fall":
-                sprite = fallImg;
+                sprite = spriteImages.fallImg;
                 frameCount = FALL_FRAMES;
                 break;
             default:
-                sprite = idleImg;
+                sprite = spriteImages.idleImg;
                 frameCount = IDLE_FRAMES;
         }
 

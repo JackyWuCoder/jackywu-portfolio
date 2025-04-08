@@ -39,7 +39,16 @@ export function setupCat(canvasId = "cat-canvas") {
     let moving = false;
     let facingLeft = false;
 
-    window.addEventListener("keydown", (e) => keys[e.key.toLowerCase()] = true);
+    window.addEventListener("keydown", (e) => {
+        const key = e.key.toLowerCase();
+
+        // Prevent default browser scrolling for arrow keys
+        if (["arrowup", "arrowdown", "arrowleft", "arrowright", " "].includes(key)) {
+            e.preventDefault();
+        }
+
+        keys[key] = true;
+    }, { passive: false });
     window.addEventListener("keyup", (e) => keys[e.key.toLowerCase()] = false);
 
     function update() {

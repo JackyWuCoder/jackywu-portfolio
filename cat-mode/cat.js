@@ -30,6 +30,7 @@ export function setupCat(canvasId = "cat-canvas") {
     let y = 100;
     const keys = {};
     let moving = false;
+    let facingLeft = false;
 
     window.addEventListener("keydown", (e) => keys[e.key.toLowerCase()] = true);
     window.addEventListener("keyup", (e) => keys[e.key.toLowerCase()] = false);
@@ -48,10 +49,12 @@ export function setupCat(canvasId = "cat-canvas") {
         if (keys["arrowleft"] || keys["a"]) {
             x -= 2;
             moving = true;
+            facingLeft = true;
         }
         if (keys["arrowright"] || keys["d"]) {
             x += 2;
             moving = true;
+            facingLeft = false;
         }
 
         // Prevent walking off screen}
@@ -70,7 +73,17 @@ export function setupCat(canvasId = "cat-canvas") {
             frameTimer = 0;
         }
 
-        ctx.drawImage(sprite, currentFrame * 32, 0, 32, 32, x, y, 32, 32);
+        ctx.save(); // Save the current canvas state
+
+        if (facingLeft) {
+            ctx.scale(-1, 1); // Flip the canvas horizontally
+            ctx.drawImage(sprite, currentFrame * 32, 0, 32, 32, -x - 32, y, 32, 32);
+        } else {
+            ctx.drawImage(sprite, currentFrame * 32, 0, 32, 32, x, y, 32, 32);
+        }
+
+        ctx.restore(); // Restore the canvas state
+
         requestAnimationFrame(draw);
     }
 

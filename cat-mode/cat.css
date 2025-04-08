@@ -14,3 +14,15 @@
 #jacky:hover {
     color: #888;
 }
+
+/* DESKTOP NAV */
+
+.hint {
+    font-size: 1rem;
+    animation: sparkle 1s infinite alternate;
+}
+
+@keyframes sparkle {
+    from { opacity: 0.3; transform: translateY(0px); }
+    to { opacity: 1; transform: translateY(-2px); }
+}

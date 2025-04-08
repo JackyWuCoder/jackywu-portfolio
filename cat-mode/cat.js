@@ -39,12 +39,21 @@ export function setupCat(canvasId = "cat-canvas") {
         moving = false;
 
         if (keys["arrowup"] || keys["w"]) {
-            y -= 2;
-            moving = true;
+            if (y > 0) {
+                y -= 2;
+                moving = true;
+            } else {
+                window.scrollBy(0, -2); // Scroll the page up
+            }
+            
         }
         if (keys["arrowdown"] || keys["s"]) {
-            y += 2;
-            moving = true;
+            if (y < canvas.height - 32) {
+                y += 2;
+                moving = true;
+            } else {
+                window.scrollBy(0, 2); // Scroll the page down
+            }
         }
         if (keys["arrowleft"] || keys["a"]) {
             x -= 2;
@@ -57,9 +66,8 @@ export function setupCat(canvasId = "cat-canvas") {
             facingLeft = false;
         }
 
-        // Prevent walking off screen}
+        // Prevent walking off screen horizontally}
         x = Math.max(0, Math.min(x, canvas.width - 32));
-        y = Math.max(0, Math.min(y, canvas.height - 32));
     }
 
     function draw() {

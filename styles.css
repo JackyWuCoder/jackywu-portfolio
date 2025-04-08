@@ -1,3 +1,9 @@
+:root {
+    --green: #00ff00;
+    --white: #ffffff;
+    --black: #000000;
+}
+
 /* GENERAL */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
@@ -430,4 +436,16 @@ footer {
 
 footer p {
     text-align: center;
+}
+
+/* LIGHT/DARK THEME */
+
+.light-theme {
+    --bg: var(--white);
+    --fontColor: var(--black);
+}
+
+.dark-theme {
+    --bg: var(--black);
+    --fontColor: var(--white);
 }

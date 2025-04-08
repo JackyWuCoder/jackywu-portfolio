@@ -436,6 +436,10 @@ article .icon {
     font-size: larger;
 }
 
+.contact-info-container a {
+    color: var(--bg-main);
+}
+
 .contact-icon {
     cursor: default;
     background-color: var(--white);

@@ -51,7 +51,7 @@ nav {
 }
 
 a {
-    color: black;
+    color: var(--fontColor);
     text-decoration: none;
 }
 

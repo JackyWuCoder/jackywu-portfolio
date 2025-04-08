@@ -1,3 +1,5 @@
+import { loadSpriteSet, waitForSpritesToLoad } from "./cat-state.js";
+
 const sections = Array.from(document.querySelectorAll("section"));
 const desktopNav = document.querySelector("#desktop-nav");
 
@@ -15,40 +17,6 @@ export function setupCat(canvasId = "cat-canvas") {
     window.updateCatTheme = () => {
         const spriteFolder = document.body.classList.contains("dark-theme") ? "white-cat" : "black-cat";
         spriteImages = loadSpriteSet(spriteFolder);
-    }
-
-    function loadSpriteSet(spriteFolder) {
-      // Sprite images
-        const idleImg = new Image();
-        idleImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_idle.png`;
-        
-        const runImg = new Image();
-        runImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_run.png`;
-
-        const jumpImg = new Image();
-        jumpImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_jump.png`;
-
-        const fallImg = new Image();
-        fallImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_fall.png`;
-
-        return { idleImg, runImg, jumpImg, fallImg };
-    }
-
-    function waitForSpritesToLoad(images, callback) {
-        let loaded = 0;
-        const total = images.length;
-    
-        images.forEach((img) => {
-            if (img.complete) {
-                loaded++;
-                if (loaded === total) callback();
-            } else {
-                img.onload = () => {
-                    loaded++;
-                    if (loaded === total) callback();
-                };
-            }
-        });
     }
 
     spriteImages = loadSpriteSet(document.body.classList.contains("dark-theme") ? "white-cat" : "black-cat");

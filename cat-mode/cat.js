@@ -68,6 +68,8 @@ export function setupCat(canvasId = "cat-canvas") {
     function update() {
         moving = false;
 
+        let canScroll = true;
+
         if (keys["arrowup"] || keys["w"]) {
             if (y > 0) {
                 y -= speed;
@@ -77,7 +79,13 @@ export function setupCat(canvasId = "cat-canvas") {
                 const nextSection = sections[currentIndex - 1];
                 if (nextSection || currentIndex - 1 == -1) {
                     animationState = "jump";
+                    currentFrame = 0;
                     nextSection.scrollIntoView({ behavior: "smooth" })
+                    canScroll = false;
+                    setTimeout(() => {
+                        animationState = "idle";
+                        canScroll = true;
+                    }, 400);
                 }
             }
             
@@ -86,12 +94,18 @@ export function setupCat(canvasId = "cat-canvas") {
             if (y < canvas.height - 32) {
                 y += speed;
                 moving = true;
-            } else {
+            } else if (canScroll){
                 const currentIndex = getCurrentSectionIndex();
                 const nextSection = sections[currentIndex + 1];
                 if (nextSection) {
                     animationState = "fall";
+                    currentFrame = 0;
                     nextSection.scrollIntoView({ behavior: "smooth" })
+                    canScroll = false;
+                    setTimeout(() => {
+                        animationState = "idle";
+                        canScroll = true;
+                    }, 400);
                 }
             }
         }

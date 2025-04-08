@@ -24,7 +24,7 @@ html {
 }
 
 h1 {
-    color: var(--green);
+    color: var(--h1-color);
 }
 
 p {
@@ -481,6 +481,7 @@ footer p {
     --profile-icon-border-color: var(--white);
     --anchor-hover-color: var(--grey);
     --anchor-hover-text-decoration-color: rgb(181, 181, 181);
+    --h1-color: var(--black);
 }
 
 .dark-theme {
@@ -493,4 +494,5 @@ footer p {
     --profile-icon-border-color: var(--white);
     --anchor-hover-color: var(--green);
     --anchor-hover-text-decoration-color: var(--green);
+    --h1-color: var(--green);
 }

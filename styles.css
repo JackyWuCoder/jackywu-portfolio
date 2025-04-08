@@ -216,6 +216,12 @@ section {
 .icon {
     cursor: pointer;
     height: 2rem;
+    background-color: var(--white);
+}
+
+.profile-icon {
+    border: 2px solid var(--profile-icon-border-color);
+    border-radius: 1rem;
 }
 
 /* BUTTONS */
@@ -452,13 +458,15 @@ footer p {
     --btn-bg: rgb(53, 53, 53);
     --btn-color: var(--white);
     --p-color: rgb(85, 85, 85);
+    --profile-icon-border-color: var(--white);
 }
 
 .dark-theme {
     --bg-main: var(--black);
     --bg-secondary: var(--white);
-    --fontColor: var(--green);
-    --btn-bg: var(--green);
+    --fontColor: var(--white);
+    --btn-bg: var(--white);
     --btn-color: var(--black);
-    --p-color: var(--green);
+    --p-color: var(--white);
+    --profile-icon-border-color: var(--white);
 }

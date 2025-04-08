@@ -19,8 +19,6 @@ toggleButton.addEventListener("click", () => {
         toggleButton.textContent = "🌞";
     }
 
-    // Force-refresh the sprite
-    if (window.catSpriteSpawned) {
-        location.reload(); // reload the entire page to refresh the sprite
-    }
+    const spriteFolder = document.body.classList.contains("dark-theme") ? "white-cat" : "black-cat";
+    spriteImages = loadSpriteSet(spriteFolder);
 });

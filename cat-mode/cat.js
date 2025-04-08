@@ -52,6 +52,7 @@ export function setupCat(canvasId = "cat-canvas") {
     const keys = {};
     let moving = false;
     let facingLeft = false;
+    let canScroll = true;
 
     window.addEventListener("keydown", (e) => {
         const key = e.key.toLowerCase();
@@ -68,13 +69,11 @@ export function setupCat(canvasId = "cat-canvas") {
     function update() {
         moving = false;
 
-        let canScroll = true;
-
         if (keys["arrowup"] || keys["w"]) {
             if (y > 0) {
                 y -= speed;
                 moving = true;
-            } else {
+            } else if (canScroll) {
                 const currentIndex = getCurrentSectionIndex();
                 const nextSection = sections[currentIndex - 1];
                 if (nextSection || currentIndex - 1 == -1) {
@@ -126,6 +125,16 @@ export function setupCat(canvasId = "cat-canvas") {
 
         // Prevent walking off screen horizontally}
         x = Math.max(0, Math.min(x, canvas.width - 32));
+
+        if (animationState !== "jump" && animationState !== "fall") {
+            if (moving) {
+                animationState = "run";
+                currentFrame = 0;
+            } else {
+                animationState = "idle";
+                currentFrame = 0;
+            }
+        }
     }
 
     function draw() {

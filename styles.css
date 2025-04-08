@@ -344,7 +344,7 @@ section {
 .text-container p {
     margin-bottom: 1.25rem;
     line-height: 1.6;
-    color: #555;
+    color: var(--profile-text-container-p-color);
 }
 
 /* EXPERIENCE SECTION */
@@ -483,6 +483,7 @@ footer p {
     --anchor-hover-text-decoration-color: rgb(181, 181, 181);
     --h1-color: var(--black);
     --btn-color-2-hover: rgb(255, 255, 255);
+    --profile-text-container-p-color: #555;
 }
 
 .dark-theme {
@@ -497,4 +498,5 @@ footer p {
     --anchor-hover-text-decoration-color: var(--green);
     --h1-color: var(--green);
     --btn-color-2-hover: var(--green);
+    --profile-text-container-p-color: var(--white);
 }

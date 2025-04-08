@@ -31,21 +31,12 @@ export function setupCat(canvasId = "cat-canvas") {
     // Keyboard input & movement
     let x = 100;
     let y = 100;
-    let speed = 10;
+    let speed = 5;
     const keys = {};
     let moving = false;
     let facingLeft = false;
 
-    window.addEventListener("keydown", (e) => {
-        const key = e.key.toLowerCase();
-        keys[key] = true;
-
-        // Prevent arrow keys and spacebar from scrolling the page
-        if (["arrowup", "arrowdown", "arrowleft", "arrowright", "space"].includes(key)) {
-            e.preventDefault();
-        }
-
-    }, {passive: false});
+    window.addEventListener("keydown", (e) => keys[e.key.toLowerCase()] = true);
     window.addEventListener("keyup", (e) => keys[e.key.toLowerCase()] = false);
 
     function update() {
@@ -56,7 +47,7 @@ export function setupCat(canvasId = "cat-canvas") {
                 y -= speed;
                 moving = true;
             } else {
-                window.scrollBy(0, -speed); // Scroll the page up
+                window.scrollBy(0, -speed * 10); // Scroll the page up
             }
             
         }
@@ -65,7 +56,7 @@ export function setupCat(canvasId = "cat-canvas") {
                 y += speed;
                 moving = true;
             } else {
-                window.scrollBy(0, speed); // Scroll the page down
+                window.scrollBy(0, speed * 10); // Scroll the page down
             }
         }
         if (keys["arrowleft"] || keys["a"]) {

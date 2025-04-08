@@ -1,5 +1,7 @@
 const blackCatIdleSrc = "./cat-mode/sprites/black-cat/cat_black_idle.png";
 const blackCatRunSrc = "./cat-mode/sprites/black-cat/cat_black_run.png";
+const blackCatJumpSrc = "./cat-mode/sprites/black-cat/cat_black_jump.png";
+const blackCatFallSrc = "./cat-mode/sprites/black-cat/cat_black_fall.png";
 
 const sections = Array.from(document.querySelectorAll("section"));
 const desktopNav = document.querySelector("#desktop-nav");
@@ -18,16 +20,28 @@ export function setupCat(canvasId = "cat-canvas") {
     // Animate idle sprite loop
     const ctx = canvas.getContext("2d");
 
-    // Idle sprite image
+    // Sprite images
     const idleImg = new Image();
     idleImg.src = blackCatIdleSrc;
     
-    // Run sprite image
     const runImg = new Image();
     runImg.src = blackCatRunSrc;
 
+    const jumpImg = new Image();
+    jumpImg.src = blackCatJumpSrc;
+
+    const fallImg = new Image();
+    fallImg.src = blackCatFallSrc;
+
+    // Sprite frame counts
     const IDLE_FRAMES = 8;
     const RUN_FRAMES = 10;
+    const JUMP_FRAMES = 4;
+    const FALL_FRAMES = 4;
+
+    // Sprite animation state
+    let animationState = "idle"; // "idle", "run", "jump", "fall"
+
     let currentFrame = 0;
     let frameTimer = 0;
 

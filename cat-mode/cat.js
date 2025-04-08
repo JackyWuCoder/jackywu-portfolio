@@ -7,33 +7,34 @@ const sections = Array.from(document.querySelectorAll("section"));
 const desktopNav = document.querySelector("#desktop-nav");
 
 let spriteImages = {
-    idle: null,
-    run: null,
-    jump: null,
-    fall: null,
+    idleImg: null,
+    runImg: null,
+    jumpImg: null,
+    fallImg: null,
 };
 
 export function setupCat(canvasId = "cat-canvas") {
     if (window.catSpriteSpawned) return;
     window.catSpriteSpawned = true; // Prevent multiple spawns;
 
+    function loadSpriteSet(spriteFolder) {
+      // Sprite images
+        const idleImg = new Image();
+        idleImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_idle.png`;
+        
+        const runImg = new Image();
+        runImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_run.png`;
 
+        const jumpImg = new Image();
+        jumpImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_jump.png`;
 
-    const isDarkTheme = document.body.classList.contains("dark-theme");
-    const spriteFolder = isDarkTheme ? "white-cat" : "black-cat";
+        const fallImg = new Image();
+        fallImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_fall.png`;
 
-    // Sprite images
-    const idleImg = new Image();
-    idleImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_idle.png`;
-    
-    const runImg = new Image();
-    runImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_run.png`;
+        return { idleImg, runImg, jumpImg, fallImg };
+    }
 
-    const jumpImg = new Image();
-    jumpImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_jump.png`;
-
-    const fallImg = new Image();
-    fallImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_fall.png`;
+    spriteImages = loadSpriteSet(document.body.classList.contains("dark-theme") ? "white-cat" : "black-cat");
 
     // Create a canvas element
     const canvas = document.createElement("canvas");

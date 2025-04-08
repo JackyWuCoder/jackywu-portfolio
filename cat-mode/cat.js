@@ -80,7 +80,11 @@ export function setupCat(canvasId = "cat-canvas") {
                 if (nextSection || currentIndex - 1 == -1) {
                     animationState = "jump";
                     currentFrame = 0;
-                    nextSection.scrollIntoView({ behavior: "smooth" })
+                    if (nextSection) {
+                        nextSection.scrollIntoView({ behavior: "smooth" })
+                    } else {
+                        desktopNav.scrollIntoView({ behavior: "smooth" })
+                    }
                     canScroll = false;
                     setTimeout(() => {
                         animationState = "idle";

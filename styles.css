@@ -441,11 +441,13 @@ footer p {
 /* LIGHT/DARK THEME */
 
 .light-theme {
-    --bg: var(--white);
+    --bg-main: var(--white);
+    --bg-secondary: var(--black);
     --fontColor: var(--black);
 }
 
 .dark-theme {
-    --bg: var(--black);
+    --bg-main: var(--black);
+    --bg-secondary: var(--white);
     --fontColor: var(--white);
 }

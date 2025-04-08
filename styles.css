@@ -232,6 +232,7 @@ section {
     padding: 1rem;
     width: 8rem;
     border-radius: 2rem;
+    color: var(--fontColor);
 }
 
 .btn-color-1, 
@@ -251,7 +252,7 @@ section {
 }
 
 .btn-color-1:hover {
-    background: rgb(0, 0 , 0);
+    background: var(--btn-bg);
 }
 
 .btn-color-2 {

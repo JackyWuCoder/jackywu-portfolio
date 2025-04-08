@@ -19,6 +19,8 @@ toggleButton.addEventListener("click", () => {
         toggleButton.textContent = "🌞";
     }
 
-    const spriteFolder = document.body.classList.contains("dark-theme") ? "white-cat" : "black-cat";
-    spriteImages = loadSpriteSet(spriteFolder);
+    // Tell cat.js to update sprite
+    if (window.catSpriteSpawned) {
+        window.updateCatTheme?.();
+    }
 });

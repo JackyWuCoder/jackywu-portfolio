@@ -17,6 +17,11 @@ export function setupCat(canvasId = "cat-canvas") {
     if (window.catSpriteSpawned) return;
     window.catSpriteSpawned = true; // Prevent multiple spawns;
 
+    window.updateCatTheme = () => {
+        const spriteFolder = document.body.classList.contains("dark-theme") ? "white-cat" : "black-cat";
+        spriteImages = loadSpriteSet(spriteFolder);
+    }
+
     function loadSpriteSet(spriteFolder) {
       // Sprite images
         const idleImg = new Image();

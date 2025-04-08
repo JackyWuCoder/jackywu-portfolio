@@ -6,9 +6,18 @@ const blackCatFallSrc = "./cat-mode/sprites/black-cat/cat_black_fall.png";
 const sections = Array.from(document.querySelectorAll("section"));
 const desktopNav = document.querySelector("#desktop-nav");
 
+let spriteImages = {
+    idle: null,
+    run: null,
+    jump: null,
+    fall: null,
+};
+
 export function setupCat(canvasId = "cat-canvas") {
     if (window.catSpriteSpawned) return;
     window.catSpriteSpawned = true; // Prevent multiple spawns;
+
+
 
     const isDarkTheme = document.body.classList.contains("dark-theme");
     const spriteFolder = isDarkTheme ? "white-cat" : "black-cat";

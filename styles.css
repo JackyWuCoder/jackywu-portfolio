@@ -22,6 +22,10 @@ html {
     scroll-behavior: smooth;
 }
 
+h1 {
+    color: var(--green);
+}
+
 p {
     color: var(--p-color);
 }

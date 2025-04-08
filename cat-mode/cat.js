@@ -114,9 +114,25 @@ export function setupCat(canvasId = "cat-canvas") {
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        const sprite = moving ? runImg : idleImg;
+        let sprite, frameCount;
 
-        const frameCount = moving ? RUN_FRAMES : IDLE_FRAMES;
+        switch (animationState) {
+            case "run":
+                sprite = runImg;
+                frameCount = RUN_FRAMES
+                break;
+            case "jump":
+                sprite = jumpImg;
+                frameCount = JUMP_FRAMES;
+                break;
+            case "fall":
+                sprite = fallImg;
+                frameCount = FALL_FRAMES;
+                break;
+            default:
+                sprite = idleImg;
+                frameCount = IDLE_FRAMES;
+        }
 
         frameTimer++;
         if (frameTimer > 10) {

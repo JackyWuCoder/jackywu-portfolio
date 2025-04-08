@@ -318,6 +318,10 @@ section {
     text-align: center;
 }
 
+.details-container p {
+    color: var(--bg-main);
+}
+
 .section-container {
     gap: 4rem;
     height: 80%;

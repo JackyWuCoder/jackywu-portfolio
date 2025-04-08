@@ -1,8 +1,3 @@
-const blackCatIdleSrc = "./cat-mode/sprites/black-cat/cat_black_idle.png";
-const blackCatRunSrc = "./cat-mode/sprites/black-cat/cat_black_run.png";
-const blackCatJumpSrc = "./cat-mode/sprites/black-cat/cat_black_jump.png";
-const blackCatFallSrc = "./cat-mode/sprites/black-cat/cat_black_fall.png";
-
 const sections = Array.from(document.querySelectorAll("section"));
 const desktopNav = document.querySelector("#desktop-nav");
 
@@ -39,7 +34,36 @@ export function setupCat(canvasId = "cat-canvas") {
         return { idleImg, runImg, jumpImg, fallImg };
     }
 
+    function waitForSpritesToLoad(images, callback) {
+        let loaded = 0;
+        const total = images.length;
+    
+        images.forEach((img) => {
+            if (img.complete) {
+                loaded++;
+                if (loaded === total) callback();
+            } else {
+                img.onload = () => {
+                    loaded++;
+                    if (loaded === total) callback();
+                };
+            }
+        });
+    }
+
     spriteImages = loadSpriteSet(document.body.classList.contains("dark-theme") ? "white-cat" : "black-cat");
+
+    waitForSpritesToLoad(
+        [
+            spriteImages.idleImg,
+            spriteImages.runImg,
+            spriteImages.jumpImg,
+            spriteImages.fallImg
+        ],
+        () => {
+            loop();
+        }
+    );
 
     // Create a canvas element
     const canvas = document.createElement("canvas");
@@ -201,17 +225,6 @@ export function setupCat(canvasId = "cat-canvas") {
         draw();
         requestAnimationFrame(loop);
     }
-
-    spriteImages.idleImg.onload = () => {
-        spriteImages.runImg.onload = () => {
-            spriteImages.jumpImg.onload = () => {
-                spriteImages.fallImg.onload = () => {
-                    // Start the animation loop
-                    loop();
-                };
-            };
-        };
-    };
 }
 
 function getCurrentSectionIndex() {

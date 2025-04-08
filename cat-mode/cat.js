@@ -10,6 +10,22 @@ export function setupCat(canvasId = "cat-canvas") {
     if (window.catSpriteSpawned) return;
     window.catSpriteSpawned = true; // Prevent multiple spawns;
 
+    const isDarkTheme = document.body.classList.contains("dark-theme");
+    const spriteFolder = isDarkTheme ? "white-cat" : "black-cat";
+
+    // Sprite images
+    const idleImg = new Image();
+    idleImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_idle.png`;
+    
+    const runImg = new Image();
+    runImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_run.png`;
+
+    const jumpImg = new Image();
+    jumpImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_jump.png`;
+
+    const fallImg = new Image();
+    fallImg.src = `./cat-mode/sprites/${spriteFolder}/${spriteFolder}_fall.png`;
+
     // Create a canvas element
     const canvas = document.createElement("canvas");
     canvas.id = canvasId;
@@ -19,19 +35,6 @@ export function setupCat(canvasId = "cat-canvas") {
 
     // Animate idle sprite loop
     const ctx = canvas.getContext("2d");
-
-    // Sprite images
-    const idleImg = new Image();
-    idleImg.src = blackCatIdleSrc;
-    
-    const runImg = new Image();
-    runImg.src = blackCatRunSrc;
-
-    const jumpImg = new Image();
-    jumpImg.src = blackCatJumpSrc;
-
-    const fallImg = new Image();
-    fallImg.src = blackCatFallSrc;
 
     // Sprite frame counts
     const IDLE_FRAMES = 8;

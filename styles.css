@@ -23,7 +23,7 @@ html {
 }
 
 p {
-    color: rgb(85, 85, 85);
+    color: var(--p-color);
 }
 
 /* TRANSITION */
@@ -63,6 +63,7 @@ a:hover {
 }
 
 .logo {
+    color: var(--fontColor);
     font-size: 2rem;
 }
 
@@ -447,12 +448,14 @@ footer p {
     --fontColor: var(--black);
     --btn-bg: rgb(53, 53, 53);
     --btn-color: var(--white);
+    --p-color: rgb(85, 85, 85);
 }
 
 .dark-theme {
     --bg-main: var(--black);
     --bg-secondary: var(--white);
-    --fontColor: var(--white);
+    --fontColor: var(--green);
     --btn-bg: var(--green);
     --btn-color: var(--black);
+    --p-color: var(--green);
 }

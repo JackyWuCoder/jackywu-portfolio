@@ -1,6 +1,8 @@
 const blackCatIdleSrc = "./cat-mode/sprites/black-cat/cat_black_idle.png";
 const blackCatRunSrc = "./cat-mode/sprites/black-cat/cat_black_run.png";
 
+const sections = Array.from(document.querySelectorAll("section"));
+
 export function setupCat(canvasId = "cat-canvas") {
     if (window.catSpriteSpawned) return;
     window.catSpriteSpawned = true; // Prevent multiple spawns;
@@ -47,7 +49,11 @@ export function setupCat(canvasId = "cat-canvas") {
                 y -= speed;
                 moving = true;
             } else {
-                window.scrollBy(0, -speed * 10); // Scroll the page up
+                const currentIndex = getCurrentSectionIndex();
+                const nextSection = sections[currentIndex - 1];
+                if (nextSection) {
+                    nextSection.scrollIntoView({ behavior: "smooth" })
+                }
             }
             
         }
@@ -56,7 +62,11 @@ export function setupCat(canvasId = "cat-canvas") {
                 y += speed;
                 moving = true;
             } else {
-                window.scrollBy(0, speed * 10); // Scroll the page down
+                const currentIndex = getCurrentSectionIndex();
+                const nextSection = sections[currentIndex + 1];
+                if (nextSection) {
+                    nextSection.scrollIntoView({ behavior: "smooth" })
+                }
             }
         }
         if (keys["arrowleft"] || keys["a"]) {
@@ -112,4 +122,18 @@ export function setupCat(canvasId = "cat-canvas") {
             loop();
         };
     };
+}
+
+function getCurrentSectionIndex() {
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+
+    for (let i = 0; i < sections.length; i++) {
+        const sectionTop = sections[i].offsetTop;
+        if (scrollY + viewportHeight / 2 < sectionTop + sections[i].offsetHeight) {
+            return i;
+        }
+    }
+
+    return sections.length - 1;
 }

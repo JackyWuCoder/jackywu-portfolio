@@ -325,6 +325,10 @@ section {
     margin: auto 0;
 }
 
+.profile-pic {
+    border-radius: 50%;
+}
+
 .text-container p {
     margin-bottom: 1.25rem;
     line-height: 1.6;

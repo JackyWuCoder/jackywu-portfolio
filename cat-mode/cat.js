@@ -85,7 +85,7 @@ export function setupCat(canvasId = "cat-canvas") {
                     setTimeout(() => {
                         animationState = "idle";
                         canScroll = true;
-                    }, 400);
+                    }, 500);
                 }
             }
             
@@ -105,7 +105,7 @@ export function setupCat(canvasId = "cat-canvas") {
                     setTimeout(() => {
                         animationState = "idle";
                         canScroll = true;
-                    }, 400);
+                    }, 500);
                 }
             }
         }

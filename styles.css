@@ -14,6 +14,7 @@
 }
 
 body {
+    background-color: var(--bg-main);
     font-family: "Poppins", sans-serif;
 }
 
@@ -244,8 +245,8 @@ section {
 
 .btn-color-1, 
 .btn-color-2:hover {
-    background: rgb(53, 53, 53);
-    color: white;
+    background: var(--btn-bg);
+    color: var(--btn-color);
 }
 
 .btn-color-1:hover {
@@ -444,10 +445,14 @@ footer p {
     --bg-main: var(--white);
     --bg-secondary: var(--black);
     --fontColor: var(--black);
+    --btn-bg: rgb(53, 53, 53);
+    --btn-color: var(--white);
 }
 
 .dark-theme {
     --bg-main: var(--black);
     --bg-secondary: var(--white);
     --fontColor: var(--white);
+    --btn-bg: var(--green);
+    --btn-color: var(--black);
 }

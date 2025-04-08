@@ -2,6 +2,7 @@ const blackCatIdleSrc = "./cat-mode/sprites/black-cat/cat_black_idle.png";
 const blackCatRunSrc = "./cat-mode/sprites/black-cat/cat_black_run.png";
 
 const sections = Array.from(document.querySelectorAll("section"));
+const desktopNav = document.querySelector("#desktop-nav");
 
 export function setupCat(canvasId = "cat-canvas") {
     if (window.catSpriteSpawned) return;
@@ -53,6 +54,9 @@ export function setupCat(canvasId = "cat-canvas") {
                 const nextSection = sections[currentIndex - 1];
                 if (nextSection) {
                     nextSection.scrollIntoView({ behavior: "smooth" })
+                }
+                if (currentIndex - 1 == -1) {
+                    desktopNav.scrollIntoView({ behavior: "smooth" })
                 }
             }
             

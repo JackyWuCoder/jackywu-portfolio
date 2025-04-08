@@ -176,8 +176,6 @@ export function setupCat(canvasId = "cat-canvas") {
         }
 
         ctx.restore(); // Restore the canvas state
-
-        requestAnimationFrame(draw);
     }
 
     function loop() {

@@ -24,6 +24,7 @@ export function setupCat(canvasId = "cat-canvas") {
     runImg.src = blackCatRunSrc;
 
     const IDLE_FRAMES = 8;
+    const RUN_FRAMES = 10;
     let currentFrame = 0;
     let frameTimer = 0;
 
@@ -35,7 +36,16 @@ export function setupCat(canvasId = "cat-canvas") {
     let moving = false;
     let facingLeft = false;
 
-    window.addEventListener("keydown", (e) => keys[e.key.toLowerCase()] = true);
+    window.addEventListener("keydown", (e) => {
+        const key = e.key.toLowerCase();
+        keys[key] = true;
+
+        // Prevent arrow keys and spacebar from scrolling the page
+        if (["arrowup", "arrowdown", "arrowleft", "arrowright", "space"].includes(key)) {
+            e.preventDefault();
+        }
+
+    }, {passive: false});
     window.addEventListener("keyup", (e) => keys[e.key.toLowerCase()] = false);
 
     function update() {
@@ -78,9 +88,11 @@ export function setupCat(canvasId = "cat-canvas") {
 
         const sprite = moving ? runImg : idleImg;
 
+        const frameCount = moving ? RUN_FRAMES : IDLE_FRAMES;
+
         frameTimer++;
         if (frameTimer > 10) {
-            currentFrame = (currentFrame + 1) % IDLE_FRAMES;
+            currentFrame = (currentFrame + 1) % frameCount;
             frameTimer = 0;
         }
 

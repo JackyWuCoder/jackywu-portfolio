@@ -2,6 +2,8 @@ const blackCatIdleSrc = "./cat-mode/sprites/black-cat/cat_black_idle.png";
 const blackCatRunSrc = "./cat-mode/sprites/black-cat/cat_black_run.png";
 
 export function setupCat(canvasId = "cat-canvas") {
+    if (window.catSpriteSpawned) return;
+    window.catSpriteSpawned = true; // Prevent multiple spawns;
 
     // Create a canvas element
     const canvas = document.createElement("canvas");
@@ -28,6 +30,7 @@ export function setupCat(canvasId = "cat-canvas") {
     // Keyboard input & movement
     let x = 100;
     let y = 100;
+    let speed = 10;
     const keys = {};
     let moving = false;
     let facingLeft = false;
@@ -40,28 +43,28 @@ export function setupCat(canvasId = "cat-canvas") {
 
         if (keys["arrowup"] || keys["w"]) {
             if (y > 0) {
-                y -= 2;
+                y -= speed;
                 moving = true;
             } else {
-                window.scrollBy(0, -2); // Scroll the page up
+                window.scrollBy(0, -speed); // Scroll the page up
             }
             
         }
         if (keys["arrowdown"] || keys["s"]) {
             if (y < canvas.height - 32) {
-                y += 2;
+                y += speed;
                 moving = true;
             } else {
-                window.scrollBy(0, 2); // Scroll the page down
+                window.scrollBy(0, speed); // Scroll the page down
             }
         }
         if (keys["arrowleft"] || keys["a"]) {
-            x -= 2;
+            x -= speed;
             moving = true;
             facingLeft = true;
         }
         if (keys["arrowright"] || keys["d"]) {
-            x += 2;
+            x += speed;
             moving = true;
             facingLeft = false;
         }

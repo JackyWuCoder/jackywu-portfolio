@@ -424,11 +424,12 @@ article .icon {
 
 .contact-icon {
     cursor: default;
+    background-color: var(--white);
 }
 
 .email-icon {
     height: 2.5rem;
-    background-color: white;
+    background-color: var(--white);
 }
 
 /* FOOTER SECTION */

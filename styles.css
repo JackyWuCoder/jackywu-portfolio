@@ -323,7 +323,7 @@ section {
 }
 
 .details-container p {
-    color: var(--bg-main);
+    color: var(--black);
 }
 
 .section-container {

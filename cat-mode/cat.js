@@ -75,11 +75,9 @@ export function setupCat(canvasId = "cat-canvas") {
             } else {
                 const currentIndex = getCurrentSectionIndex();
                 const nextSection = sections[currentIndex - 1];
-                if (nextSection) {
+                if (nextSection || currentIndex - 1 == -1) {
+                    animationState = "jump";
                     nextSection.scrollIntoView({ behavior: "smooth" })
-                }
-                if (currentIndex - 1 == -1) {
-                    desktopNav.scrollIntoView({ behavior: "smooth" })
                 }
             }
             
@@ -92,6 +90,7 @@ export function setupCat(canvasId = "cat-canvas") {
                 const currentIndex = getCurrentSectionIndex();
                 const nextSection = sections[currentIndex + 1];
                 if (nextSection) {
+                    animationState = "fall";
                     nextSection.scrollIntoView({ behavior: "smooth" })
                 }
             }
